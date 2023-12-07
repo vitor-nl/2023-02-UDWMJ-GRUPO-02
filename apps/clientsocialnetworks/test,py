@@ -1,0 +1,11 @@
+from django.test import TestCase
+from .models import ClientSocialnetwork
+
+class ClientSocialnetworkTestCase(TestCase):
+    def setUp(self):
+        # Configuração inicial para testes
+        pass
+
+    def test_example(self):
+        # Adicione seus testes aqui
+        self.assertTrue(True)

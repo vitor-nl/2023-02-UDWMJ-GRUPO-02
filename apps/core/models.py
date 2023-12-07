@@ -1,26 +1,16 @@
 from django.db import models
-from django.test import Client
+from clients.models import Cliente
 
-# Create your models here.
-
-class Categoria(models.Model):
-    nome = models.CharField(max_length=100)
+class ConquistaCliente(models.Model):
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    conquista_nome = models.CharField(max_length=100)
     descricao = models.TextField()
+    data_conquista = models.DateField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Conquista do Cliente'
+        verbose_name_plural = 'Conquistas dos Clientes'
+        ordering = ['-data_conquista']
 
     def __str__(self):
-        return self.nome
-
-class Conquista(models.Model):
-    nome = models.CharField(max_length=100)
-    descricao = models.TextField()
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"{self.nome} - Categoria: {self.categoria}"
-
-class ConquistaClient(models.Model):
-    Client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    conquista = models.ForeignKey(Conquista, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"{self.client} - {self.conquista}"
+        return f"{self.cliente} - {self.conquista_nome}"

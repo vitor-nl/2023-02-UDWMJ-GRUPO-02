@@ -1,11 +1,9 @@
 from django.db import models
-from django.test import Client
-from apps import products
 from categories.models import Category
+from clients.models import Cliente
 
-# Create your models here.
 class Product(models.Model):
-    cliente = models.ForeignKey(Client, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     distancia = models.FloatField()
     duracao = models.DurationField()
     data = models.DateField()
@@ -13,7 +11,12 @@ class Product(models.Model):
     condicoes_climaticas = models.CharField(max_length=100)
     terreno = models.CharField(max_length=100)
     observacoes = models.TextField()
-    produtos = models.ManyToManyField(products, blank=True)
+    produtos = models.ManyToManyField('self', blank=True)  
+
+    class Meta:
+        verbose_name = 'Produto'
+        verbose_name_plural = 'Produtos'
+        ordering = ['id']
 
     def __str__(self):
         return f"Corrida de {self.cliente} em {self.data}"

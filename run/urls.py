@@ -19,10 +19,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls', namespace='core')),
-    path('pedidos/', include('orders.urls', namespace='orders')),
-    path('pedidos_itens/', include('orders.urls', namespace='orders_items')),
+    path('pedidos/', include(('orders.urls', 'orders'), namespace='orders')),
     path('clientes/', include('clients.urls', namespace='clients')),
-    path('clientes_redessociais/', include('clients.urls', namespace='clients_socialnetworks')),
+    path('clientes_redessociais/', include('clients.urls', namespace='clientsocialnetworks')),
     path('redessociais/', include('socialnetworks.urls', namespace='socialnetworks')),
     path('produtos/', include('products.urls', namespace='products')),
     path('categorias/', include('categories.urls', namespace='categories')),

@@ -1,14 +1,11 @@
-
 from django.urls import path, include
-from . import views
-from rest_framework import routers
+from rest_framework.routers import DefaultRouter
+from .views import OrderViewSet, OrderItemViewSet
 
-app_name = 'orders'
-
-router = routers.DefaultRouter()
-router.register('pedidos', views.OrderViewSet, basename='pedidos')
-router.register('pedidos_itens', views.OrderItemViewSet, basename='pedidos_itens')
+router = DefaultRouter()
+router.register(r'orders', OrderViewSet)
+router.register(r'order-items', OrderItemViewSet)
 
 urlpatterns = [
-    path('', include(router.urls) )
+    path('api/', include(router.urls)),
 ]
