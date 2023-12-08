@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'clients.apps.ClientsConfig',
     'orders.apps.OrdersConfig',
     'core.apps.CoreConfig',
-    'clientsocialnetworks', 
+    'clientsocialnetworks.apps.ClientsocialnetworksConfig', 
     
 ]
 

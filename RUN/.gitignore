@@ -6,9 +6,11 @@ modeloapp/__pycache__/*
 /apps/categories/migrations/*
 /apps/products/__pycache__/*
 /apps/products/migrations/*
-apps/socialnetworks/__pycache__/*
+/apps/socialnetworks/__pycache__/*
 /apps/socialnetworks/migrations/*
 /apps/clients/__pycache__/*
 /apps/clients/migrations/*
 /apps/orders/__pycache__/*
 /apps/orders/migrations/*
+/apps/clientsocialnetworks/__pycache__/*
+/apps/clientsocialnetworks/migrations/*
