@@ -1,7 +1,8 @@
 from django.db import models
 from socialnetworks.models import Socialnetwork
 from clientsocialnetworks import ClientSocialnetwork
-class Cliente(models.Model):
+
+class Cliente (models.Model):
     primeiro_nome = models.CharField(max_length=50)
     ultimo_nome = models.CharField(max_length=100) 
     endereco = models.CharField(max_length=200)   
